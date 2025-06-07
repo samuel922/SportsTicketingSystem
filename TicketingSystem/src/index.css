@@ -26,8 +26,10 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   min-width: 320px;
+  max-width: 1120px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
