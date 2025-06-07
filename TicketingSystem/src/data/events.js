@@ -4,7 +4,7 @@ export const events = [
     name: 'City Marathon',
     date: '2024-06-20',
     description: 'Annual city marathon with thousands of runners.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 5, adult: 10, couple: 18, family: 25 },
   },
   {
@@ -20,7 +20,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
   {
@@ -28,7 +28,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
   {
@@ -36,7 +36,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
   {
@@ -44,7 +44,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
   {
@@ -52,7 +52,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
   {
@@ -60,7 +60,7 @@ export const events = [
     name: 'City Derby',
     date: '2024-05-25',
     description: 'Local football teams battle for the trophy.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 6, adult: 12, couple: 20, family: 30 },
   },
 ]
