@@ -64,3 +64,45 @@
   bottom: 1rem;
   right: 1rem;
 }
+
+/* simple fade in animation used for main screens */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app,
+.event-details,
+.cart {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.event-card {
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .event-list {
+    grid-template-columns: 1fr;
+  }
+
+  .add-cart-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-cart-btn {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
