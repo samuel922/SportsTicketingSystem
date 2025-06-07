@@ -12,7 +12,7 @@ export const events = [
     name: 'Beach Volleyball Final',
     date: '2025-07-15',
     description: 'Exciting final match at the beach arena.',
-    image: '/assets/react.svg',
+    image: '/assets/game.jpg',
     prices: { kid: 8, adult: 15, couple: 28, family: 40 },
   },
   {
