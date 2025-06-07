@@ -1,6 +1,6 @@
 # Ticketing System Example
 
-This folder contains a simple React application demonstrating a very small sports ticketing interface. Users can list tickets for events and purchase tickets that are available. It uses Vite for development and build tooling.
+This folder contains a small React application that lists upcoming sports events. You can view event details and add tickets for adults, kids, couples or families to a simple cart. The project uses Vite for development and is entirely client side.
 
 ## Development
 
@@ -12,4 +12,3 @@ npm run dev
 ```
 
 The application will be available at http://localhost:5173.
-

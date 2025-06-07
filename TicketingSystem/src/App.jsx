@@ -1,85 +1,60 @@
 import { useState } from 'react'
 import './App.css'
+import { events } from './data/events.js'
+import EventList from './components/EventList.jsx'
+import EventDetails from './components/EventDetails.jsx'
+import Cart from './components/Cart.jsx'
 
 function App() {
-  const [tickets, setTickets] = useState([])
-  const [form, setForm] = useState({ event: '', price: '', seller: '' })
+  const [selectedEvent, setSelectedEvent] = useState(null)
+  const [cart, setCart] = useState([])
+  const [showCart, setShowCart] = useState(false)
 
-  const handleFormChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+  const addToCart = (eventId, type, qty) => {
+    setCart((prev) => {
+      const idx = prev.findIndex(
+        (i) => i.eventId === eventId && i.type === type
+      )
+      if (idx !== -1) {
+        const updated = [...prev]
+        updated[idx] = { ...updated[idx], qty: updated[idx].qty + qty }
+        return updated
+      }
+      return [...prev, { eventId, type, qty }]
+    })
+    setShowCart(true)
   }
 
-  const listTicket = (e) => {
-    e.preventDefault()
-    if (!form.event || !form.price || !form.seller) return
-    const newTicket = {
-      id: Date.now(),
-      event: form.event,
-      price: Number(form.price),
-      seller: form.seller,
-      sold: false,
-    }
-    setTickets([...tickets, newTicket])
-    setForm({ event: '', price: '', seller: '' })
-  }
-
-  const buyTicket = (id) => {
-    setTickets(tickets.map((t) => (t.id === id ? { ...t, sold: true } : t)))
+  const updateCart = (eventId, type, qty) => {
+    setCart((prev) =>
+      prev.map((i) =>
+        i.eventId === eventId && i.type === type ? { ...i, qty } : i
+      )
+    )
   }
 
   return (
     <div className="app">
-      <h1>Sports Ticketing</h1>
-
-      <form onSubmit={listTicket} className="sell-form">
-        <input
-          name="event"
-          placeholder="Event"
-          value={form.event}
-          onChange={handleFormChange}
+      <h1>Sports Events</h1>
+      {showCart ? (
+        <Cart
+          cart={cart}
+          events={events}
+          onUpdate={updateCart}
+          onClose={() => setShowCart(false)}
         />
-        <input
-          name="price"
-          type="number"
-          placeholder="Price"
-          value={form.price}
-          onChange={handleFormChange}
+      ) : selectedEvent ? (
+        <EventDetails
+          event={selectedEvent}
+          onAdd={addToCart}
+          onBack={() => setSelectedEvent(null)}
         />
-        <input
-          name="seller"
-          placeholder="Seller"
-          value={form.seller}
-          onChange={handleFormChange}
-        />
-        <button type="submit">Sell Ticket</button>
-      </form>
-
-      <h2>Available Tickets</h2>
-      <ul className="ticket-list">
-        {tickets.filter((t) => !t.sold).length === 0 && (
-          <li>No tickets available</li>
-        )}
-        {tickets
-          .filter((t) => !t.sold)
-          .map((t) => (
-            <li key={t.id}>
-              {t.event} - ${t.price} (Seller: {t.seller})
-              <button onClick={() => buyTicket(t.id)}>Buy</button>
-            </li>
-          ))}
-      </ul>
-
-      <h2>Sold Tickets</h2>
-      <ul className="ticket-list">
-        {tickets.filter((t) => t.sold).length === 0 && <li>No sold tickets</li>}
-        {tickets
-          .filter((t) => t.sold)
-          .map((t) => (
-            <li key={t.id}>
-              {t.event} - ${t.price} (Seller: {t.seller})
-            </li>
-          ))}
-      </ul>
+      ) : (
+        <EventList events={events} onView={setSelectedEvent} />
+      )}
+      <button className="view-cart-btn" onClick={() => setShowCart(true)}>
+        Cart ({cart.reduce((a, b) => a + b.qty, 0)})
+      </button>
     </div>
   )
 }

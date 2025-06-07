@@ -1,8 +1,6 @@
 # Sports Ticketing System
 
-This repository contains a very small demonstration of a sports ticketing system built with React and Vite.
-
-The application allows users to list tickets for sporting or concert events and buy available tickets. It is purely client-side and stores tickets in memory, so data will reset on refresh. The project is intended as a simple starting point for further development.
+This repository contains a small demonstration of a sports event ticketing system built with React and Vite. The application lists a few sample events, allows you to view event details and add different ticket types to a cart. Everything is stored in memory so data resets on refresh. Use it as a starting point for further development.
 
 ## Running locally
 
@@ -14,4 +12,3 @@ npm run dev
 ```
 
 Open http://localhost:5173 to view the app.
-
